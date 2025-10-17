@@ -68,6 +68,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Github } from "lucide-react"
+import { ThreeDots } from "react-loader-spinner"
 
 export default function GitRoastPage() {
   const [username, setUsername] = useState("")
@@ -129,10 +130,33 @@ export default function GitRoastPage() {
               disabled={isLoading || !username.trim()}
               className="h-12 px-8 bg-green-600 hover:bg-green-700 text-white font-mono font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Roasting..." : "Roast Me"}
+              {isLoading ? (
+                <div className="flex items-center gap-2">
+                  <span>Cooking</span>
+                  <ThreeDots
+                    visible={true}
+                    height="30"
+                    width="30"
+                    color="#fff"
+                    ariaLabel="three-dots-loading"
+                  />
+                </div>
+              ) : (
+                "Roast Me"
+              )}
             </Button>
           </div>
         </div>
+        {/* {isLoading && <ThreeDots
+          visible={true}
+          height="80"
+          width="80"
+          color="#4fa94d"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />} */}
 
         {/* Roast Result Section */}
         {roast && (
@@ -146,7 +170,7 @@ export default function GitRoastPage() {
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-mono font-bold text-slate-900 mb-3">{username}</h3>
-                  <p className="text-slate-700 leading-relaxed font-mono text-base whitespace-pre-line">
+                  <p className="text-slate-700 leading-5.5 font-mono text-base whitespace-pre-line">
                     {roast}
                   </p>
                 </div>
@@ -157,16 +181,20 @@ export default function GitRoastPage() {
 
         {/* Footer */}
         <footer className="w-full max-w-2xl text-center border-t border-slate-200 pt-8 mt-12">
-          <p className="text-slate-600 font-mono text-sm mb-4">Built for laughs — not your ego 💀</p>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors"
-          >
-            <Github className="w-5 h-5" />
-            <span className="font-mono text-sm">Visit GitHub</span>
-          </a>
+          <p className="text-slate-700 font-mono text-sm mb-4">Built for laughs — not your ego 💀 | Made with fun & chaos 😁 by Utsav</p>
+          <p className="text-sm text-slate-600 font-sans">
+            Got roasted? Post your screenshots and tag me on{" "}
+            <a
+              href="https://x.com/0xdevug"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-500 hover:underline underline-offset-2"
+            >
+              X.com
+            </a>{" "}
+            👀
+          </p>
+
         </footer>
       </main>
     </div>

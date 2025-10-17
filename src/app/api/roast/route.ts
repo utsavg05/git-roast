@@ -12,14 +12,13 @@
 //     const userRes = await fetch(`https://api.github.com/users/${username}`);
 //     if (!userRes.ok) return NextResponse.json({ roast: "User not found 😭" });
 //     const user = await userRes.json();
-//     console.log("user:", user);
 
 //     // Fetch repos
 //     const repoRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=50`);
 //     const repos = await repoRes.json();
 
 //     const repoSummaries = repos
-//       .slice(0, 5)
+//       .slice(0, 7)
 //       .map((r: any) => `${r.name} (${r.stargazers_count}⭐, ${r.language || "no language"})`)
 //       .join("\n");
 
@@ -34,11 +33,12 @@
 // Top repos:
 // ${repoSummaries}
 
-// Now roast this developer in a fun, witty way (under 5 lines).
-// Be humorous but not rude. Mention their coding or GitHub habits if possible.
+// Now roast this developer in a fun, witty way (under 9 lines).
+// Be funny, clever, and a little savage — but not mean.
+// Mention their coding or GitHub habits if possible.
 // `;
 
-//     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+//     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 //     const result = await model.generateContent(prompt);
 //     const roast = result.response.text();
 
@@ -120,10 +120,9 @@ ${repoSummaries}
 Recent commit messages:
 ${commitMessages}
 
-Now roast this developer in 4-6 witty lines.
-Mention their coding or GitHub habits based on commits and repos if possible.
+Now roast this developer in a fun, witty way (under 9 lines).
 Be funny, clever, and a little savage — but not mean.
-Avoid generic compliments or apologies.
+Mention their coding or GitHub habits if possible.
 `
 
     // Generate roast
